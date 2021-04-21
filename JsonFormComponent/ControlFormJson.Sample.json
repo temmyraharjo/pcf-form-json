@@ -1,0 +1,32 @@
+{
+    "controls": [{
+            "name": "name",
+            "label": "Name",
+            "type": "string"
+        },
+        {
+            "name": "total",
+            "label": "Total Amount",
+            "type": "number"
+        },
+        {
+            "name": "active",
+            "label": "Active",
+            "type": "boolean"
+        },
+        {
+            "name": "account",
+            "label": "Account",
+            "type": "lookup"
+        }
+    ],
+    "lookupMetadata": {
+        "account": {
+            "allowMultiSelect": false,
+            "defaultEntityType": "account",
+            "defaultViewId": "",
+            "entityTypes": ["account"],
+            "viewIds": []
+        }
+    }
+}

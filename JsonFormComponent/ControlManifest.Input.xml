@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="Insurgo" constructor="JsonFormComponent" version="0.0.1" 
+    display-name-key="JsonFormComponent" description-key="JsonFormComponent description" 
+    control-type="standard">
+    <type-group name="strings">
+      <type>Multiple</type>
+      <type>SingleLine.Text</type>
+      <type>SingleLine.TextArea</type>
+    </type-group>
+    <property name="StringProperty" display-name-key="String Property" 
+      description-key="JSON represent value of PCF." of-type-group="strings" 
+      usage="bound" required="true" />
+    <property name="ControlFormJson" display-name-key="Control Form Json" 
+      description-key="Collection of controls to define the value of the PCF." 
+      of-type-group="strings" usage="input" required="true" />
+    <resources>
+      <code path="index.ts" order="1"/>
+      <css path="../node_modules/bootstrap/dist/css/bootstrap.min.css" order="1" />
+    </resources>
+    <feature-usage>
+      <uses-feature name="Utility" required="true" />
+    </feature-usage>
+  </control>
+</manifest>
