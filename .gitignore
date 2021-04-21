@@ -12,3 +12,5 @@
 # msbuild output directories
 /bin
 /obj
+
+/coverage

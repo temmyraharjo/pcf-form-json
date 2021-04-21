@@ -6,7 +6,8 @@
         "build": "pcf-scripts build",
         "clean": "pcf-scripts clean",
         "rebuild": "pcf-scripts rebuild",
-        "start": "pcf-scripts start"
+        "start": "pcf-scripts start",
+        "test": "karma start karma.conf.js --browsers=ChromeHeadless --single-run"
     },
     "dependencies": {
         "bootstrap": "^4.6.0",
@@ -14,9 +15,20 @@
         "popper.js": "^1.16.1"
     },
     "devDependencies": {
-        "pcf-scripts": "^1",
-        "pcf-start": "^1",
+        "@types/chai": "^4.2.16",
+        "@types/mocha": "^8.2.2",
         "@types/node": "^10.12.18",
-        "@types/powerapps-component-framework": "^1.2.0"
+        "@types/powerapps-component-framework": "^1.2.0",
+        "chai": "^4.3.4",
+        "karma": "^6.3.2",
+        "karma-chai": "^0.1.0",
+        "karma-chrome-launcher": "^3.1.0",
+        "karma-cli": "^2.0.0",
+        "karma-firefox-launcher": "^2.1.0",
+        "karma-mocha": "^2.0.1",
+        "karma-typescript": "^5.5.1",
+        "mocha": "^8.3.2",
+        "pcf-scripts": "^1",
+        "pcf-start": "^1"
     }
 }

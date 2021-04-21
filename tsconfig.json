@@ -1,6 +1,25 @@
 {
     "extends": "./node_modules/pcf-scripts/tsconfig_base.json",
+    "compileOnSave": false,
     "compilerOptions": {
-        "typeRoots": ["node_modules/@types"],
-    }
+        "lib": [
+            "es5",
+            "es6",
+            "dom"
+        ],
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "outDir": "tmp",
+        "target": "es5",
+        "sourceMap": true,
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    "include": [
+        "./JsonFormComponent/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }
