@@ -43,7 +43,6 @@ export class Generator {
           controlElement = generateBoolean(control, value as boolean);
           break;
         case 'lookup':
-        case 'multilookup':
           const currentDefinition = definition.lookupMetadata[control.name];
           controlElement = generateLookup(
             this.context.utils,
@@ -89,7 +88,7 @@ export class Generator {
           ? element.checked
           : control.type == 'number'
           ? element.valueAsNumber
-          : control.type == 'lookup' || control.type == 'multilookup' 
+          : control.type == 'lookup' 
           ? (element.value ? JSON.parse(element.value) : null)
           : element.value;
     }

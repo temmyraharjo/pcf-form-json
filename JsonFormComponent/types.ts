@@ -2,7 +2,6 @@ export type ControlType =
   | 'string'
   | 'number'
   | 'lookup'
-  | 'multilookup'
   | 'boolean';
 
 export interface ControlDefinition {
@@ -23,9 +22,9 @@ export interface FilterDefinition {
 
 export interface FormValue {
   [key: string]:
-    | null
-    | string
-    | number
-    | ComponentFramework.EntityReference[]
-    | boolean;
+  | null
+  | string
+  | number
+  | ComponentFramework.EntityReference[]
+  | boolean;
 }
