@@ -22,10 +22,10 @@
     ],
     "lookupMetadata": {
         "account": {
-            "allowMultiSelect": false,
+            "allowMultiSelect": true,
             "defaultEntityType": "account",
             "defaultViewId": "",
-            "entityTypes": ["account"],
+            "entityTypes": ["account", "contact"],
             "viewIds": []
         }
     }

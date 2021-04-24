@@ -90,7 +90,7 @@ export class Generator {
           : control.type == 'number'
           ? element.valueAsNumber
           : control.type == 'lookup' || control.type == 'multilookup' 
-          ? (element.value ? element.value : null)
+          ? (element.value ? JSON.parse(element.value) : null)
           : element.value;
     }
 

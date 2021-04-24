@@ -36,7 +36,7 @@ export function generateLookup(
   textBox.setAttribute('id', 'display-' + control.name);
   textBox.setAttribute('readonly', 'true');
   textBox.value =
-    value && value.length > 0 ? value.map((e) => e.name).join(';') : '';
+    value && value.length > 0 ? value.map((e) => e.name).join('; ') : '';
   div.appendChild(textBox);
 
   const divChild = document.createElement('div');
@@ -44,10 +44,11 @@ export function generateLookup(
 
   const buttonSearch = document.createElement('button');
   buttonSearch.setAttribute('class', 'btn btn-primary');
+  buttonSearch.innerText = 'Search';
   buttonSearch.onclick = () => {
     const successFn = (result: ComponentFramework.EntityReference[]): void => {
-      const names = result.map((e) => e.name).join(';');
-      textBox.innerText = names;
+      const names = result.map((e) => e.name).join('; ');
+      textBox.value = names;
 
       hidden.setAttribute('value', JSON.stringify(result));
     };

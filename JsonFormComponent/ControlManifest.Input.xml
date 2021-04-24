@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="Insurgo" constructor="JsonFormComponent" version="0.0.1" 
-    display-name-key="JsonFormComponent" description-key="JsonFormComponent description" 
+  <control namespace="Insurgo" constructor="JsonFormComponent" version="0.0.3" 
+    display-name-key="Json Form Component" description-key="Display JSON format text as a Bootstrap Form." 
     control-type="standard">
     <type-group name="strings">
       <type>Multiple</type>
