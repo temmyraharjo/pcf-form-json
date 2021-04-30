@@ -2,7 +2,9 @@ export type ControlType =
   | 'string'
   | 'number'
   | 'lookup'
-  | 'boolean';
+  | 'boolean'
+  | 'date'
+  | 'optionset';
 
 export interface ControlDefinition {
   name: string;
@@ -10,9 +12,15 @@ export interface ControlDefinition {
   type: ControlType;
 }
 
+export interface OptionSetDefinition {
+  label: string,
+  value: number
+}
+
 export interface UiDefinition {
   controls: ControlDefinition[];
   lookupMetadata: { [key: string]: ComponentFramework.UtilityApi.LookupOptions };
+  optionSetMetadata: { [key: string]: OptionSetDefinition[] }
 }
 
 export interface FilterDefinition {

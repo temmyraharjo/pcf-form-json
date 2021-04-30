@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="Insurgo" constructor="JsonFormComponent" version="0.0.3" 
+  <control namespace="Insurgo" constructor="JsonFormComponent" version="1.3.0" 
     display-name-key="Json Form Component" description-key="Display JSON format text as a Bootstrap Form." 
     control-type="standard">
     <type-group name="strings">
@@ -17,6 +17,7 @@
     <resources>
       <code path="index.ts" order="1"/>
       <css path="../node_modules/bootstrap/dist/css/bootstrap.min.css" order="1" />
+      <css path="css/site.css" order="2" />
     </resources>
     <feature-usage>
       <uses-feature name="Utility" required="true" />

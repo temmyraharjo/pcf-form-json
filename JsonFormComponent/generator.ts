@@ -1,8 +1,10 @@
 import { convertToJson } from './common';
 import { generateBoolean } from './controls/boolean';
+import { generateDate } from './controls/date';
 import { generateDefault } from './controls/default';
 import { generateLookup } from './controls/lookup';
 import { generateNumber } from './controls/number';
+import { generateOptionSet } from './controls/optionset';
 import { IInputs } from './generated/ManifestTypes';
 import { UiDefinition, FormValue } from './types';
 
@@ -54,6 +56,13 @@ export class Generator {
         case 'number':
           controlElement = generateNumber(control, value as number);
           break;
+        case 'optionset':
+          const optionSets = definition.optionSetMetadata[control.name];
+          controlElement = generateOptionSet(control, value as number, optionSets);
+          break;
+        case 'date':
+          controlElement = generateDate(control, value as string);
+          break;
         default:
           controlElement = generateDefault(control, value as string);
           break;
@@ -87,14 +96,25 @@ export class Generator {
         control.type == 'boolean'
           ? element.checked
           : control.type == 'number'
-          ? element.valueAsNumber
-          : control.type == 'lookup' 
-          ? (element.value ? JSON.parse(element.value) : null)
-          : element.value;
+            ? element.valueAsNumber
+            : control.type == 'lookup'
+              ? (element.value ? JSON.parse(element.value) : null)
+              : control.type == 'optionset'
+                ? (element.value != 'Choose..' ? parseInt(element.value) : null)
+                : control.type == 'date'
+                  ? this.getDate(element.valueAsDate)
+                  : element.value;
     }
 
     const text = JSON.stringify(result);
     this.submittedFunction(text);
+  }
+
+  private getDate(date: Date | null) {
+    if (!date) return null;
+    return [date.getFullYear(),
+    ('0' + (date.getMonth() + 1)).slice(-2),
+    ('0' + date.getDate()).slice(-2)].join('-');
   }
 
   private generateLabel(labelName: string): HTMLLabelElement {

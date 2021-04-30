@@ -1,5 +1,6 @@
 {
-    "controls": [{
+    "controls": [
+        {
             "name": "name",
             "label": "Name",
             "type": "string"
@@ -18,6 +19,16 @@
             "name": "account",
             "label": "Account",
             "type": "lookup"
+        },
+        {
+            "name": "status",
+            "label": "Status",
+            "type": "optionset"
+        },
+        {
+            "name": "birthdate",
+            "label": "Birthdate",
+            "type": "date"
         }
     ],
     "lookupMetadata": {
@@ -25,8 +36,23 @@
             "allowMultiSelect": true,
             "defaultEntityType": "account",
             "defaultViewId": "",
-            "entityTypes": ["account", "contact"],
+            "entityTypes": [
+                "account",
+                "contact"
+            ],
             "viewIds": []
         }
+    },
+    "optionSetMetadata": {
+        "status": [
+            {
+                "label": "Active",
+                "value": 1
+            },
+            {
+                "label": "Inactive",
+                "value": 2
+            }
+        ]
     }
 }
