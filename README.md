@@ -95,3 +95,7 @@ Supported data types:
     "birthdate": "2021-05-07"
 }
 ```
+
+## Solutions
+
+You can download the solution in Release folder (Managed + Unmanaged available).
