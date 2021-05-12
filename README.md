@@ -99,3 +99,21 @@ Supported data types:
 ## Solutions
 
 You can download the solution in Release folder (Managed + Unmanaged available).
+
+## How to Install
+Install the zip (unmanaged or managed) that you can find in the Release Tab.
+
+On the string (Single Text or Multiline Text) you can go the Field Properties > Controls > Json Form Component (If you not find it, you need to Add Control). This will help you to bind this attribute to the property _**String Property**_ or the result attribute.
+
+![PCF Form Json Properties](https://temmyraharjo.files.wordpress.com/2021/05/add-control.png)
+
+This PCF Form needs 2 string parameters to run:
+
+* _**String Property**_ to define the result of the JSON Form after being saved (look for **Sample JSON Result** string for the result).
+* _**Control Form Json**_ to define the form metadata (look for **Sample JSON Form String** section to define the string).
+
+Then for _**Control Form Json**_ you need to set it to another attribute (as long as string data type) or you can bind it with static string value:
+
+![Control Form JSON settings](https://temmyraharjo.files.wordpress.com/2021/05/control-form-json-attribute.png)
+
+Remember, you can't set the _**String Property**_ attribute to _**Control Form Json**_ attribute
