@@ -116,4 +116,4 @@ Then for _**Control Form Json**_ you need to set it to another attribute (as lon
 
 ![Control Form JSON settings](https://temmyraharjo.files.wordpress.com/2021/05/control-form-json-attribute.png)
 
-Remember, you can't set the _**String Property**_ attribute to _**Control Form Json**_ attribute
+Remember, you can't set the _**String Property**_ attribute same as _**Control Form Json**_ attribute
