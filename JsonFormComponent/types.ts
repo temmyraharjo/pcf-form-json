@@ -4,7 +4,9 @@ export type ControlType =
   | 'lookup'
   | 'boolean'
   | 'date'
-  | 'optionset';
+  | 'optionset'
+  | 'checkbox'
+  | 'datetime';
 
 export interface ControlDefinition {
   name: string;
@@ -14,7 +16,7 @@ export interface ControlDefinition {
 
 export interface OptionSetDefinition {
   label: string,
-  value: number
+  value: number | string
 }
 
 export interface UiDefinition {
@@ -34,5 +36,7 @@ export interface FormValue {
   | string
   | number
   | ComponentFramework.EntityReference[]
-  | boolean;
+  | boolean
+  | number[]
+  | string[];
 }

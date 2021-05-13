@@ -14,3 +14,10 @@ export function generateDate(
 
     return input;
 }
+
+export function getDateValue(date: Date | null) {
+    if (!date) return null;
+    return [date.getFullYear(),
+    ('0' + (date.getMonth() + 1)).slice(-2),
+    ('0' + date.getDate()).slice(-2)].join('-');
+  }

@@ -1,12 +1,14 @@
 import { convertToJson } from './common';
 import { generateBoolean } from './controls/boolean';
-import { generateDate } from './controls/date';
+import { generateDate, getDateValue } from './controls/date';
 import { generateDefault } from './controls/default';
 import { generateLookup } from './controls/lookup';
+import { generateCheckbox, setCheckBoxValue } from './controls/checkbox';
 import { generateNumber } from './controls/number';
 import { generateOptionSet } from './controls/optionset';
 import { IInputs } from './generated/ManifestTypes';
 import { UiDefinition, FormValue } from './types';
+import { generateDateTime, setDateTimeValue } from './controls/datetime';
 
 export class Generator {
   private initialFormValue: FormValue;
@@ -60,8 +62,15 @@ export class Generator {
           const optionSets = definition.optionSetMetadata[control.name];
           controlElement = generateOptionSet(control, value as number, optionSets);
           break;
+        case 'checkbox':
+          const metadata = definition.optionSetMetadata[control.name];
+          controlElement = generateCheckbox(control, metadata, value as number[] | string[] | null);
+          break;
         case 'date':
           controlElement = generateDate(control, value as string);
+          break;
+        case 'datetime':
+          controlElement = generateDateTime(control, value as string);
           break;
         default:
           controlElement = generateDefault(control, value as string);
@@ -87,6 +96,12 @@ export class Generator {
   saveForm(uiDefinition: UiDefinition) {
     const result = {} as FormValue;
     for (const control of uiDefinition.controls) {
+      if (control.type == 'checkbox') {
+        setCheckBoxValue(control);
+      } else if (control.type == 'datetime') {
+        setDateTimeValue(control);
+      }
+
       const element = document.getElementById(
         'insurgo-' + control.name.toLowerCase()
       ) as HTMLInputElement;
@@ -102,19 +117,16 @@ export class Generator {
               : control.type == 'optionset'
                 ? (element.value != 'Choose..' ? parseInt(element.value) : null)
                 : control.type == 'date'
-                  ? this.getDate(element.valueAsDate)
-                  : element.value;
+                  ? getDateValue(element.valueAsDate)
+                  : control.type == 'datetime'
+                    ? element.value
+                    : control.type == 'checkbox'
+                      ? JSON.parse(element.value)
+                      : element.value;
     }
 
     const text = JSON.stringify(result);
     this.submittedFunction(text);
-  }
-
-  private getDate(date: Date | null) {
-    if (!date) return null;
-    return [date.getFullYear(),
-    ('0' + (date.getMonth() + 1)).slice(-2),
-    ('0' + date.getDate()).slice(-2)].join('-');
   }
 
   private generateLabel(labelName: string): HTMLLabelElement {

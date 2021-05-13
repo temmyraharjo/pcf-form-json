@@ -1,6 +1,6 @@
 {
-    "name": "Temmy Wahyu Raharjo",
-    "total": 1000,
+    "name": "Temmy",
+    "total": 200000,
     "active": true,
     "account": [
         {
@@ -10,5 +10,11 @@
         }
     ],
     "status": 1,
-    "birthdate": "2021-05-07"
+    "birthdate": "2021-05-20",
+    "numbers": [
+        "one",
+        "two",
+        "three"
+    ],
+    "datetime": "2021-05-19 20:00"
 }

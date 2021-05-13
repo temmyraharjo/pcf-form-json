@@ -2,7 +2,7 @@ import { ControlDefinition, OptionSetDefinition } from "../types";
 
 export function generateOptionSet(
     control: ControlDefinition,
-    value: number | null,
+    value: number | string | null,
     metadata: OptionSetDefinition[]
 ): HTMLElement {
     const select = document.createElement('select');
