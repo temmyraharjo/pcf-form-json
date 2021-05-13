@@ -108,7 +108,9 @@ Supported data types:
 - Number with type: 'number'
 - Boolean with type: 'boolean'
 - Date with type: 'date'
-- OptionSet with type: 'optionset'
+- DateTime with type: 'datetime'
+- OptionSet with type: 'optionset' (You should define optionSetMetadata)
+- Checkbox with type: 'checkbox' (You should define optionSetMetadata)
 
 ## Sample JSON Result
 
