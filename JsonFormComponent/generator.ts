@@ -24,7 +24,8 @@ export class Generator {
   }
 
   generate() {
-    if (!this.context.parameters.ControlFormJson.raw) return;
+    if (!this.context.parameters.ControlFormJson.raw || 
+      this.context.parameters.ControlFormJson.raw === 'val') return;
 
     const definition = convertToJson<UiDefinition>(
       this.context.parameters.ControlFormJson.raw
