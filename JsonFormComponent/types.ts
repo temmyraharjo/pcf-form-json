@@ -35,7 +35,7 @@ export interface FormValue {
   | null
   | string
   | number
-  | ComponentFramework.EntityReference[]
+  | ComponentFramework.LookupValue[]
   | boolean
   | number[]
   | string[];

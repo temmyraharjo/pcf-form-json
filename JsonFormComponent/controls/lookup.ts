@@ -4,7 +4,7 @@ import { generateDefault } from './default';
 function onLookupSearch(
   utils: ComponentFramework.Utility,
   definition: ComponentFramework.UtilityApi.LookupOptions,
-  successFn: (result: ComponentFramework.EntityReference[]) => void
+  successFn: (result: ComponentFramework.LookupValue[]) => void
 ) {
   utils
     .lookupObjects({
@@ -15,9 +15,7 @@ function onLookupSearch(
       viewIds: definition.viewIds,
     })
     .then(
-      (value: ComponentFramework.EntityReference[]) => {
-        successFn(value);
-      },
+      (value) => successFn(value),
       (error) => console.error(error)
     );
 }
@@ -26,7 +24,7 @@ export function generateLookup(
   utils: ComponentFramework.Utility,
   control: ControlDefinition,
   definition: ComponentFramework.UtilityApi.LookupOptions,
-  value: ComponentFramework.EntityReference[]
+  value: ComponentFramework.LookupValue[]
 ): HTMLElement {
   const div = document.createElement('div');
   div.setAttribute('class', 'input-group');
@@ -46,7 +44,10 @@ export function generateLookup(
   buttonSearch.setAttribute('class', 'btn btn-primary');
   buttonSearch.innerText = 'Search';
   buttonSearch.onclick = () => {
-    const successFn = (result: ComponentFramework.EntityReference[]): void => {
+    const successFn = (result: ComponentFramework.LookupValue[]): void => {
+      var valid = result && result.length > 0;
+      if(!valid) return;
+      
       const names = result.map((e) => e.name).join('; ');
       textBox.value = names;
 

@@ -24,7 +24,7 @@ export class Generator {
   }
 
   generate() {
-    if (!this.context.parameters.ControlFormJson.raw || 
+    if (!this.context.parameters.ControlFormJson.raw ||
       this.context.parameters.ControlFormJson.raw === 'val') return;
 
     const definition = convertToJson<UiDefinition>(
@@ -53,7 +53,7 @@ export class Generator {
             this.context.utils,
             control,
             currentDefinition,
-            value as ComponentFramework.EntityReference[]
+            value as ComponentFramework.LookupValue[]
           );
           break;
         case 'number':
@@ -65,7 +65,8 @@ export class Generator {
           break;
         case 'checkbox':
           const metadata = definition.optionSetMetadata[control.name];
-          controlElement = generateCheckbox(control, metadata, value as number[] | string[] | null);
+          controlElement = generateCheckbox(control, metadata,
+            value as number[] | string[] | null);
           break;
         case 'date':
           controlElement = generateDate(control, value as string);
