@@ -9,7 +9,6 @@ A PCF Component that receives a predefined JSON format string and displays it as
 
 ```javascript
 {
-   {
     "controls": [
         {
             "name": "name",
